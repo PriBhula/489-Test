@@ -1,0 +1,156 @@
+<!DOCTYPE html>  <!-- HTML5 document type -->
+<html>
+<head>
+	<style type="text/css">
+		.block {
+			display: block;
+		}
+		form{
+			float: left;
+		}
+	</style>
+
+</head>
+<body>
+	<form action="">
+		<fieldset id="group1">
+			<input type="radio" name="g1" value="coin" id="coin">coin
+		</fieldset>
+
+		<fieldset id="group2">
+			<input type="radio" class="g2" name ="g2" value="teaBtn" id="teaBtn" disabled="true">teaBtn
+			<input type="radio" class="g2" name ="g2" value="coffeeBtn" id="coffeeBtn" disabled="true">coffeeBtn
+		</fieldset>
+
+		<fieldset id="group3">
+			<input type="radio" class="g3" name ="g3" value="tea" id="tea" disabled="true">tea
+			<input type="radio" class="g3" name ="g3" value="coffee" id="coffee" disabled="true">coffee
+		</fieldset>
+
+		<fieldset id="group4">
+			<input type="radio" class="g4" name ="g4" value="sigh" id="sigh" disabled="true">sigh
+			<input type="radio" class="g4" name ="g4" value="shake" id="shake" disabled="true">shake
+			<label id="end" hidden="true">END</label>
+		</fieldset>
+	</form>
+
+	<img src="{{ url_for('static', filename = '0initial.jpg') }}" id="init" />
+	<img src="{{url_for('static', filename='1coin.jpg') }}" id="coinimg" hidden="true"/>
+	<img src="{{url_for('static', filename='2teaBtn.jpg') }}" id="teaBtnimg" hidden="true"/>
+	<img src="{{url_for('static', filename='3coffeeBtn.jpg') }}" id="coffeeBtnimg" hidden="true"/>
+	<img src="{{url_for('static', filename='4tea.jpg') }}" id="teaimg" hidden="true"/>
+	<img src="{{url_for('static', filename='5coffee.jpg') }}" id="coffeeimg" hidden="true"/>
+	<img src="{{url_for('static', filename='6shake.jpg') }}" id="shakeimg" hidden="true"/>
+	<img src="{{url_for('static', filename='7sigh.jpg') }}" id="sighimg" hidden="true"/>
+
+	<label id="coinL" hidden="true">COIN</label>
+	<label id="teaBtnL" hidden="true">TEABTN</label>
+	<label id="coffeeBtnL" hidden="true">COFFEEBTN</label>
+	<label id="teaL" hidden="true">TEA</label>
+	<label id="coffeeL" hidden="true">COFFEE</label>
+	<label id="sighL" hidden="true">SIGH</label>
+	<label id="shakeL" hidden="true">SHAKE</label>
+
+
+
+	<script>
+
+		document.getElementById('coin').onclick=function(){
+			document.getElementById('teaBtn').disabled = false;
+			document.getElementById('teaBtn').checked = false;
+			document.getElementById('coffeeBtn').disabled = false;
+			document.getElementById('coffeeBtn').checked = false;
+			document.getElementById('sigh').checked = false;
+			document.getElementById('sigh').disabled= true;
+			
+			document.getElementById('coinimg').hidden = false;
+			document.getElementById('init').hidden = true;
+			document.getElementById('sighimg').hidden = true;
+
+			document.getElementById('coinL').hidden = false;
+			document.getElementById('teaBtnL').hidden = true;
+			document.getElementById('teaL').hidden = true;
+			document.getElementById('sighL').hidden = true;	
+
+			$("coin").click(function(){
+				$("img").show("slow");
+			});
+		}
+
+		document.getElementById('teaBtn').onclick=function(){
+			document.getElementById('coin').disabled = true;
+			document.getElementById('coin').checked = false;
+			document.getElementById('tea').checked = false;
+			document.getElementById('tea').disabled = false;
+			document.getElementById('coffeeBtn').disabled = true;
+			
+			document.getElementById('coinimg').hidden = true;
+			document.getElementById('teaBtnimg').hidden = false;
+
+			document.getElementById('teaBtnL').hidden = false;
+
+		}
+
+		document.getElementById('coffeeBtn').onclick=function(){
+			document.getElementById('coin').disabled = true;
+			document.getElementById('coin').checked = false;
+			document.getElementById('coffee').disabled = false;
+			document.getElementById('coffee').checked = false;
+			document.getElementById('teaBtn').disabled = true;		
+			
+			document.getElementById('coinimg').hidden = true;
+			document.getElementById('coffeeBtnimg').hidden = false;
+
+			document.getElementById('coffeeBtnL').hidden = false;
+		}
+
+		document.getElementById('tea').onclick=function(){
+			document.getElementById('teaBtn').disabled = true;
+			document.getElementById('teaBtn').checked = false;
+			document.getElementById('sigh').disabled = false;
+			document.getElementById('sigh').checked = false;
+			
+			document.getElementById('teaBtnimg').hidden = true;
+			document.getElementById('teaimg').hidden = false;
+
+			document.getElementById('teaL').hidden = false;
+		}
+
+		document.getElementById('coffee').onclick=function(){
+			document.getElementById('coffeeBtn').disabled = true;
+			document.getElementById('coffeeBtn').checked = false;
+			document.getElementById('shake').disabled = false;
+			document.getElementById('shake').checked = false;
+
+			document.getElementById('coffeeBtnimg').hidden = true;
+			document.getElementById('coffeeimg').hidden = false;
+
+			document.getElementById('coffeeL').hidden = false;
+		}
+
+		document.getElementById('sigh').onclick=function(){
+			document.getElementById('tea').disabled = true;
+			document.getElementById('tea').checked = false;
+			document.getElementById('coin').disabled = false;
+			document.getElementById('coin').checked = false;
+
+			document.getElementById('sighimg').hidden = false;
+			document.getElementById('teaimg').hidden = true;
+
+			document.getElementById('sighL').hidden = false;
+		}
+
+		document.getElementById('shake').onclick=function(){
+			document.getElementById('coffee').disabled = true;
+			document.getElementById('coffee').checked = false;
+			document.getElementById('end').hidden = false;
+
+			document.getElementById('coffeeimg').hidden = true;
+			document.getElementById('shakeimg').hidden = false;
+
+			document.getElementById('shakeL').hidden = false;
+		}
+
+	</script>
+</body>
+</html>
